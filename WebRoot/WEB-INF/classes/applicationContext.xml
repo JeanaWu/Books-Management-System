@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url"
+			value="jdbc:sqlserver://localhost:1433;databaseName=book">
+		</property>
+		<property name="username" value="sa"></property>
+		<property name="password" value="123456"></property>
+		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.SQLServerDialect
+				</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>vo/TBook.hbm.xml</value></list>
+		</property>
+		</bean>
+
+	
+		<bean id="bookDAO" class="dao.bookDAO">
+			<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+			</property>
+		</bean>
+		
+		<bean id="fname" class="abo.Findname">
+	      <property name="dao"><ref bean="bookDAO"/></property>
+	   </bean>
+		
+		<bean id="fprice" class="abo.findPrice">
+	      <property name="dao"><ref bean="bookDAO"/></property>
+	   </bean>
+	   
+	  
+	   <bean id="update" class="abo.UpdateAction">
+	      <property name="dao"><ref bean="bookDAO"/></property>
+	     
+	   </bean>
+	   
+	   
+	   <bean id="addS" class="abo.ZJAction">
+	  		
+	      <property name="dao"><ref bean="bookDAO"/></property>
+	   </bean>
+		</beans>

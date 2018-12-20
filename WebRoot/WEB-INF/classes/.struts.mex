@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="abo" location="225,10" size="280,455">
+    <action name="add" location="68,60" size="150,83">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="zj0.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="index.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="bookZJ.jsp" />
+      </result>
+    </action>
+    <action name="fname" location="68,165" size="150,41">
+      <result name="find">
+        <resourceEdge source="find" routing="0" target="cx0.jsp" />
+      </result>
+    </action>
+    <action name="fprice" location="68,270" size="150,41">
+      <result name="find">
+        <resourceEdge source="find" routing="0" target="cx0.jsp" />
+      </result>
+    </action>
+    <action name="update" location="68,375" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="update0.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="zj0.jsp" path="/zj0.jsp" location="10,52" size="150,55" />
+  <webResource name="cx0.jsp" path="/cx0.jsp" location="10,157" size="150,55" />
+  <webResource name="update0.jsp" path="/update0.jsp" location="570,367" size="150,55" />
+  <webResource name="index.jsp" path="/index.jsp" location="50,350" size="150,55" />
+  <webResource name="bookZJ.jsp" path="/bookZJ.jsp" location="568,60" size="150,55" />
+</Struts2Diagram>
+

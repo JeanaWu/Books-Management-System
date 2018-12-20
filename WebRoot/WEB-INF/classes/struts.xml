@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+    <constant name="struts.objectFactory" value="spring"/>
+	<package name="abo" extends="struts-default" namespace="/">
+		<action name="add" class="addS" method="addBook">
+			<result name="success">/zj0.jsp</result>
+			<result name="error">/index.jsp</result>
+			<result name="input">/bookZJ.jsp</result>
+		</action>
+		<action name="fname" class="fname" method="find">
+			<result name="find">/cx0.jsp</result></action>
+		<action name="fprice" class="fprice" method="findPrice">
+			<result name="find">/cx0.jsp</result>
+		</action>
+		<action name="update" class="update" method="updateBook">
+			<result name="success">/update0.jsp</result>
+		</action>
+		</package>
+</struts>    
